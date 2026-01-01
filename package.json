@@ -1,0 +1,19 @@
+{
+  "name": "extbuild",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "zip-bun": "^1.3.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "build": "bun run scripts/build.ts"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  }
+}
