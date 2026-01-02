@@ -5,7 +5,10 @@
   "description": "A basic example extension",
   "permissions": [],
   "icons": {
+    "16": "static/icon.svg",
+    "32": "static/icon.svg",
     "48": "static/icon.svg",
+    "96": "static/icon.svg",
     "128": "static/icon.svg"
   },
   "action": {
