@@ -1,5 +1,6 @@
 import * as Bun from "bun";
 import { cp, mkdir, readdir, rm } from "node:fs/promises";
+import { relative } from "node:path";
 
 const buildDir = "./build";
 const distDir = "./dist";
@@ -28,7 +29,9 @@ function getEntrypoints() {
 /** When you don't care about the result of an operation */
 function dontCare(promise: Promise<any>): Promise<void> {
   return new Promise((resolve, _) => {
-    promise.then(() => resolve()).catch(() => resolve());
+    promise
+    .then(() => resolve())
+    .catch(() => resolve());
   })
 }
 
@@ -44,9 +47,13 @@ const artifacts = Bun.build({
 });
 
 const manifestPromise = cp(`${srcDir}/manifest.json`, `${buildDir}/manifest.json`);
-const copyPromise = cp(staticDir, buildDir, { recursive: true });
+const copyPromise = cp(staticDir, `${buildDir}/static/`, { recursive: true });
 
 await Promise.all([manifestPromise, copyPromise, artifacts]);
 
-await Bun.$`zip -r -9 ${distDir}/ext.zip build/`;
+
+const relDir = relative(buildDir, distDir);
+process.chdir(buildDir);
+
+await Bun.$`zip -r -9 ${relDir}/ext.zip *`;
 

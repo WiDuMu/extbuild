@@ -1,14 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Example manifest",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A basic example extension",
   "permissions": [],
   "icons": {
     "48": "static/icon.svg",
     "128": "static/icon.svg"
   },
-  "options_page": "options/options.html",
   "action": {
     "default_title": "Example extension popup",
     "default_popup": "popup/popup.html"
@@ -22,7 +21,8 @@
   "content_scripts": [
     {
       "js": ["content_scripts/example.js"],
-      "matches": ["http*://example.com"]
+      "matches": ["https://example.com/*"]
     }
-  ]
+  ],
+  "options_page": "options/options.html"
 }
