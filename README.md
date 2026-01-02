@@ -1,2 +1,2 @@
 # extbuild.
-A prototype builder for a browser extension
+A prototype builder for browser extensions. It currently only runs in linux based environments and uses Bun's bundler to convert typescript and node packages into a valid zip bundle to pass to chrome or firefox.
