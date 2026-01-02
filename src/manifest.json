@@ -3,8 +3,9 @@
   "name": "Example manifest",
   "version": "0.0.1",
   "description": "A basic example extension",
+  "permissions": [],
   "icons": {
-    "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
+    "48": "static/icon.svg",
+    "128": "static/icon.svg"
   }
 }
